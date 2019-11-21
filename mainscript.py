@@ -3,7 +3,7 @@
 import numpy as np
 
 #Define menu items
-menuItems =np.array(["Enter name","Display greeting","Quit"])
+menuItems =np.array(["Load new data","Check for data errors","Generate plots.","Display list of grades","Quit"])
 
 while True:
     #Display menu
@@ -17,6 +17,13 @@ while True:
     elif choice == 2:
         print(name)
     
+    elif choice == 3:
+        pass
+    
+    
+    elif choice ==4:
+        pass
+    
     #Quit
-    elif choice ==3:
+    elif choice ==5:
         break
