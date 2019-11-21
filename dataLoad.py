@@ -9,9 +9,9 @@ def dataLoad(filename):
         print(fildata)
     except FileNotFoundError:
         return "Date file not found, please try again"
-    studentid =np.array([filedata.StudentID])
-    repeats = [item for item, count in Counter(studentid).iteritems() if count > 1]
+    studentid =np.array(fildata.StudentID)
+    repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
     
     
     return (repeats)
-print("")
+print(dataLoad("DataArk1.csv"))
