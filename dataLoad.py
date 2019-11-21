@@ -28,7 +28,7 @@ def dataLoad(filename):
     finaldata = np.c_[data,grades]
     df = pd.DataFrame(finaldata,columns=assignments,index=numbers)
     df_sort = df.sort_values('Name')
-    print(df,df_sort)
+    print(df_sort)
     
     return (grades)
 print(dataLoad("DataArk1.csv"))
