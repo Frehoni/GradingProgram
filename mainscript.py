@@ -1,5 +1,5 @@
 # Main script
-
+import pandas as pd
 import numpy as np
 #Taget fra test projekt 1.
 istheredata = False #Tjek for data. Taget fra test projekt 1.
@@ -19,6 +19,8 @@ while True:
             istheredata = True
         else:
             istheredate = False
+        gradesFinal = computeFinalGrades(grades)
+        print(gradesFinal,grades)
     #Check for data errors
     elif choice == 2:
 
@@ -26,12 +28,13 @@ while True:
         if istheredata != True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
-            data = dataLoad(filename)
+            grades = dataLoad(filename)
             if type(grades) == type(array):
                 istheredata = True
             else:
                 istheredate = False
-                pass    
+                pass
+        
     
     
     
@@ -42,7 +45,7 @@ while True:
         if istheredata != True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
-            data = dataLoad(filename)
+            grades = dataLoad(filename)
             if type(grades) == type(array):
                 istheredata = True
             else:
@@ -55,7 +58,7 @@ while True:
         if istheredata != True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
-            data = dataLoad(filename)
+            grades = dataLoad(filename)
             if type(grades) == type(array):
                 istheredata = True
             else:
