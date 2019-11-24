@@ -20,7 +20,7 @@ while True:
         else:
             istheredate = False
         gradesFinal = computeFinalGrades(grades)
-        print(gradesFinal,grades)
+        #print(gradesFinal,grades)
     #Check for data errors
     elif choice == 2:
 
@@ -33,7 +33,7 @@ while True:
                 istheredata = True
             else:
                 istheredate = False
-                pass
+            gradesFinal = computeFinalGrades(grades)
         
     
     
@@ -50,7 +50,8 @@ while True:
                 istheredata = True
             else:
                 istheredate = False
-                pass  
+                pass 
+            gradesFinal = computeFinalGrades(grades)            
         pass
 
     #Display list of grades
@@ -63,10 +64,11 @@ while True:
                 istheredata = True
             else:
                 istheredate = False
-                pass          
+            gradesFinal = computeFinalGrades(grades)         
+            
+        print(collectData(filename,gradesFinal))
+                
         
-        
-        pass
     
     #Quit
     elif choice ==5:

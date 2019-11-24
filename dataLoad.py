@@ -15,9 +15,9 @@ def dataLoad(filename):
         else: 
             gradesi = np.array(fil.iloc[i,2:])
             grades = np.vstack((grades,gradesi))
-
+    
     return grades
-print(dataLoad("DataArk1.csv"))
+#print(dataLoad("DataArk1.csv"))
 
 
 

@@ -5,20 +5,20 @@ def computeFinalGrades(grades):
     grades1 = np.array([])
     #data = np.array(grades)
     #studentid = np.array(grades.StudentID)
-    for b in range(np.size(grades.shape[0])):#Calculating Average
-        if -3 in np.array(grades.iloc[b,2:]):
+    for b in range(grades.shape[0]):#Calculating Average
+        if -3 in grades[b,:]:
             grades1 = np.append(grades1,-3)
         else:
-            if np.size(np.array(grades.iloc[b,2:])) == 1:
-                grades1 = np.append(grades1,grades.iloc[b,2:])
-            if np.size(np.array(grades.iloc[b,2:])) > 1:
-                grade = np.array(grades.iloc[b,2:])
+            if np.size(grades[b,:]) == 1:
+                grades1 = np.append(grades1,grades[b,:])
+            if np.size(grades[b,:]) > 1:
+                grade = grades[b,:]
                 grade = np.delete(grade,grade.argmin())
                 grades1 = np.append(grades1,(np.sum(grade)/np.size(grade))) #np.mean gav os ingen decimaler, så vi gjorde det som en flok hulemennesker ville.
-            if np.size(np.array(grades.iloc[b,2:])) == 0:
+            if np.size(grades[b,:]) == 0:
                 print("There are no grades!")
     grades = grades1
     gradesFinal = roundGrade(grades)
     
     return gradesFinal
-print(computeFinalGrades(pd.read_csv("DataArk1.csv")))
+#print(computeFinalGrades(np.array(([7,-3,10],[2,4,7],[4,7,10],[12,12,12],[2,2,2],[10,10,10]))))
