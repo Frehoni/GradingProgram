@@ -2,13 +2,12 @@
 import numpy as np
 import pandas as pd
 def dataLoad(filename):
-
+    
     #Taget fra test projekt 1. 
     try: #Tjekker om filen kan findes og kan læses
         fil = pd.read_csv(filename) #Åbner og læser filen så den kan bruges
-        #print(fildata)
     except FileNotFoundError:
-        return print("Date file not found, please try again")    
+        return "Date file not found, please try again"   
     for i in range(np.size(np.array(fil.StudentID))):
         if i == 0:
             grades = np.array(fil.iloc[i,2:])

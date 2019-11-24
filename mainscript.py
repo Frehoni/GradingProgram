@@ -13,27 +13,35 @@ while True:
     
     #Load new data#
     if choice ==1:
-        filename = input("Please enter the full file name, for example \"file.csv\" : ")
-        grades = dataLoad(filename)
-        if type(grades) == type(array): #Check if the data was approved 
-            istheredata = True
-        else:
-            istheredate = False
-        gradesFinal = computeFinalGrades(grades)
-        #print(gradesFinal,grades)
+        while True:
+            filename = input("Please enter the full file name, for example \"file.csv\" : ")
+            if type(dataLoad(filename)) == type(array):
+                istheredata = True
+                grades = dataLoad(filename)
+                gradesFinal = computeFinalGrades(grades)
+                break
+            else:
+                istheredate = False
+                print(dataLoad(filename))
+
+
+
     #Check for data errors
     elif choice == 2:
 
     
         if istheredata != True:
-            print("Missing datafile. Please insert a file before this function can run:")
-            filename = input("Please enter the full file name, for example \"file.csv\" : ")
-            grades = dataLoad(filename)
-            if type(grades) == type(array):
-                istheredata = True
-            else:
-                istheredate = False
-            gradesFinal = computeFinalGrades(grades)
+            while True:
+                print("Missing datafile. Please insert a file before this function can run:")
+                filename = input("Please enter the full file name, for example \"file.csv\" : ")
+                if type(dataLoad(filename)) == type(array):
+                    istheredata = True
+                    grades = dataLoad(filename)
+                    gradesFinal = computeFinalGrades(grades)
+                    break
+                else:
+                    istheredate = False
+                    print(dataLoad(filename))
         
     
     
@@ -43,28 +51,36 @@ while True:
     #Generate plots
     elif choice == 3:
         if istheredata != True:
-            print("Missing datafile. Please insert a file before this function can run:")
-            filename = input("Please enter the full file name, for example \"file.csv\" : ")
-            grades = dataLoad(filename)
-            if type(grades) == type(array):
-                istheredata = True
-            else:
-                istheredate = False
-                pass 
-            gradesFinal = computeFinalGrades(grades)            
+            while True:
+                print("Missing datafile. Please insert a file before this function can run:")
+                filename = input("Please enter the full file name, for example \"file.csv\" : ")
+                if type(dataLoad(filename)) == type(array):
+                    istheredata = True
+                    grades = dataLoad(filename)
+                    gradesFinal = computeFinalGrades(grades)
+                    break
+                else:
+                    istheredate = False
+                    print(dataLoad(filename))        
         pass
 
+   
+    
+    
     #Display list of grades
     elif choice ==4:
         if istheredata != True:
-            print("Missing datafile. Please insert a file before this function can run:")
-            filename = input("Please enter the full file name, for example \"file.csv\" : ")
-            grades = dataLoad(filename)
-            if type(grades) == type(array):
-                istheredata = True
-            else:
-                istheredate = False
-            gradesFinal = computeFinalGrades(grades)         
+            while True:
+                print("Missing datafile. Please insert a file before this function can run:")
+                filename = input("Please enter the full file name, for example \"file.csv\" : ")
+                if type(dataLoad(filename)) == type(array):
+                    istheredata = True
+                    grades = dataLoad(filename)
+                    gradesFinal = computeFinalGrades(grades)
+                    break
+                else:
+                    istheredate = False
+                    print(dataLoad(filename))       
             
         print(collectData(filename,gradesFinal))
                 
