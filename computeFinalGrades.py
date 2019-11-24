@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 def computeFinalGrades(grades):
     grades1 = np.array([])
-    data = np.array(grades)
-    studentid = np.array(grades.StudentID)
-    for b in range(np.size(studentid)):#Calculating Average
+    #data = np.array(grades)
+    #studentid = np.array(grades.StudentID)
+    for b in range(np.size(grades.shape[0])):#Calculating Average
         if -3 in np.array(grades.iloc[b,2:]):
             grades1 = np.append(grades1,-3)
         else:

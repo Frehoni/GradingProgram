@@ -1,6 +1,5 @@
 # Grade Rounding function
 import numpy as np
-import pandas as pd
 
 def roundGrade(grades):
     posgrades = np.array([-3,0,2,4,7,10,12]) #Possible roundable grades
