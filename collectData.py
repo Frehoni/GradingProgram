@@ -8,9 +8,10 @@ def collectData(filename,finalgrades):
     assignments = np.array(['StudentID','Name'])
     data = np.array(fil)
     studentid =np.array(fil.StudentID)
-    repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
-    for a in range(np.size(repeats)):
-        print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))
+    #Er I mainscript istedet
+    #repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
+    #for a in range(np.size(repeats)):
+        #print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))
 
        
     for c in range(np.size(fil.iloc[0,:])-2):
