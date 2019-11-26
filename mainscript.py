@@ -57,20 +57,21 @@ while True:
         elif errorchoice == 2:
             for l in range(fil.shape[0]): #Finds numbers that aren't valid.
                 check = np.array(fil.iloc[l,2:])
-                if check.any() not in posgrades:
-                    print("Error at check nr. {} with grade(s): {}. One or more grade are not in accepted range.".format(l+1,check))
+                for checksize in range(np.size(check)):
+                    if check[checksize] not in posgrades:
+                        print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
         
         #Checking for everything
         elif errorchoice == 3:
-            
-            fil = pd.read_csv(filename)
             studentid = np.array(fil.StudentID)
             repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
             for a in range(np.size(repeats)):
-                print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))
-            for l in range(np.size(grades)): #Finds numbers to round up and numbers to remove. 
-                if grades[l] < (-3) or grades[l] > 12:
-                    print("Error at grade nr. {}. Grade is not in accepted range and has been removed when finding the mean.".format(l+1))
+                print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))            
+            for l in range(fil.shape[0]): #Finds numbers that aren't valid.
+                check = np.array(fil.iloc[l,2:])
+                for checksize in range(np.size(check)):
+                    if check[checksize] not in posgrades:
+                        print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
         elif errorchoice ==4:
             pass
             

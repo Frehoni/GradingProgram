@@ -6,7 +6,7 @@ def computeFinalGrades(grades):
     #data = np.array(grades)
     #studentid = np.array(grades.StudentID)
     for b in range(grades.shape[0]):#Calculating Average
-        if -3 in grades[b,:]:
+        if -3 in grades[b,:]:#Failing the student
             grades1 = np.append(grades1,-3)
         else:
             if np.size(grades[b,:]) == 1:
