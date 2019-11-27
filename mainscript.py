@@ -44,36 +44,38 @@ while True:
                     istheredate = False
                     print(dataLoad(filename))
         erroroptions = np.array(['Check for dublicate StudentIDs','Check for invalid grades','Check for all mentioned errors','Go back'])
-        errorchoice = displayMenu(erroroptions)
-        fil = pd.read_csv(filename)
-        #Checking for dublicate student ID's
-        if errorchoice == 1:
-            studentid = np.array(fil.StudentID)
-            repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
-            for a in range(np.size(repeats)):
-                print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))
+        while True:
+            errorchoice = displayMenu(erroroptions)
+            fil = pd.read_csv(filename)
         
-        #Checking for invalid grades
-        elif errorchoice == 2:
-            for l in range(fil.shape[0]): #Finds numbers that aren't valid.
-                check = np.array(fil.iloc[l,2:])
-                for checksize in range(np.size(check)):
-                    if check[checksize] not in posgrades:
-                        print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
-        
-        #Checking for everything
-        elif errorchoice == 3:
-            studentid = np.array(fil.StudentID)
-            repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
-            for a in range(np.size(repeats)):
-                print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))            
-            for l in range(fil.shape[0]): #Finds numbers that aren't valid.
-                check = np.array(fil.iloc[l,2:])
-                for checksize in range(np.size(check)):
-                    if check[checksize] not in posgrades:
-                        print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
-        elif errorchoice ==4:
-            pass
+            #Checking for dublicate student ID's
+            if errorchoice == 1:
+                studentid = np.array(fil.StudentID)
+                repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
+                for a in range(np.size(repeats)):
+                    print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))
+            
+            #Checking for invalid grades
+            elif errorchoice == 2:
+                for l in range(fil.shape[0]): #Finds numbers that aren't valid.
+                    check = np.array(fil.iloc[l,2:])
+                    for checksize in range(np.size(check)):
+                        if check[checksize] not in posgrades:
+                            print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
+            
+            #Checking for everything
+            elif errorchoice == 3:
+                studentid = np.array(fil.StudentID)
+                repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
+                for a in range(np.size(repeats)):
+                    print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))            
+                for l in range(fil.shape[0]): #Finds numbers that aren't valid.
+                    check = np.array(fil.iloc[l,2:])
+                    for checksize in range(np.size(check)):
+                        if check[checksize] not in posgrades:
+                            print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
+            elif errorchoice ==4:
+                break
             
             
             
