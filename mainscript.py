@@ -96,7 +96,7 @@ while True:
                 else:
                     istheredate = False
                     print(dataLoad(filename))        
-        pass
+        print(gradesPlot(grades,gradesFinal))
 
    
     
