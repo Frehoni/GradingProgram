@@ -1,7 +1,7 @@
 ﻿StudentID,Name,Assignment1,Assignment2,Assignment3
-S145566,Anton H,7,-3,10
-S185757,Anton Whoop,-2,4,7
-S173745,Anton Lalala,4,8,10
-S834752,Anton Aka MrHermann,11,12,12
-S173745,Anton Ikke Lalala,2,2,3
-S145566,Anton SH, 10,10,10
+S145566,Anton H,7,-3,10,7,7
+S185757,Anton Whoop,-2,4,7,10,4
+S173745,Anton Lalala,4,8,10,2,4
+S834752,Anton Aka MrHermann,11,12,12,10,10
+S173745,Anton Ikke Lalala,2,2,3,7,4
+S145566,Anton SH, 10,10,10,10,7
