@@ -14,7 +14,7 @@ def gradesPlot(grades,gradesFinal):
             else: 
                 pass
         grade_there=grades_zero
-    plt.figure(figsize=(15,8))
+    plt.figure(figsize=(12,8))
     y_akse = np.arange(np.max(grade_there)+1)
     plt.bar(posgrades_string,grade_there,color=['black','gray','red','orange','yellow','limegreen','green'])
     plt.yticks(y_akse,y_akse)
@@ -23,7 +23,34 @@ def gradesPlot(grades,gradesFinal):
     plt.xlabel("Grades")
     plt.show()
     
-print(gradesPlot(1,np.array([4,7,10,2,0,-3,12,10,4])))
+    assignmentnr = np.array([])
+    samletkarakter = np.array([])
+    for a in range(grades.shape[1]):
+        samletkarakter = np.append(samletkarakter,grades[:,a])
+        placeholder = np.ones(grades.shape[0])
+        placeholder = placeholder + (a+1)
+        assignmentnr = np.append(assignmentnr,placeholder)
+    
+    tillægx = np.random.randn(-0.1,0.1,np.size(assignmentnr))
+    tillægy = np.random.randn(-0.1,0.1,np.size(assignmentnr))
+    assignmentnrx = assignmentnr+tillægx
+    samletkaraktery = samletkarakter+tillægy
+    assignments = np.array([])
+    for c in range(grades.shape[1]):
+        assignments = np.append(assignments,'Assignment {}'.format(c+1))
+        print(assignments)
+    plt.scatter(assignmentnrx,samletkaraktery)
+    plt.xlim(-3,12)
+    plt.show()
+    
+    
+    
+    
+    
+    
+    
+    
+print(gradesPlot(np.array(([1,2,3],[1,2,3])),np.array([4,7,10,2,0,-3,12,10,4])))
             
         
             
