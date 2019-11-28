@@ -7,7 +7,8 @@ def dataLoad(filename):
     try: #Tjekker om filen kan findes og kan læses
         fil = pd.read_csv(filename) #Åbner og læser filen så den kan bruges
     except FileNotFoundError:
-        return "Date file not found, please try again"   
+        return "Data file not found, please try again"  
+    
     for i in range(np.size(np.array(fil.StudentID))):
         if i == 0:
             grades = np.array(fil.iloc[i,2:])
