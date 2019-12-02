@@ -1,3 +1,4 @@
+#The code has been writen equally between both groupmembers.
 # Main script
 import pandas as pd
 import numpy as np
@@ -21,10 +22,14 @@ while True:
             if filechoice == 1:
                 filename = input("Please enter the full file name, for example \"file.csv\" : ")
                 if type(dataLoad(filename)) == type(array):
-                    istheredata = True
+                    
                     grades = dataLoad(filename)
                     gradesFinal = computeFinalGrades(grades)
-                    break
+                    if type(gradesFinal) == type("string"):
+                        print(gradesFinal)
+                    else:
+                        istheredata = True
+                        break
                 else:
                     istheredate = False
                     print(dataLoad(filename))
@@ -44,48 +49,58 @@ while True:
                 if filechoice == 1:
                     filename = input("Please enter the full file name, for example \"file.csv\" : ")
                     if type(dataLoad(filename)) == type(array):
-                        istheredata = True
                         grades = dataLoad(filename)
                         gradesFinal = computeFinalGrades(grades)
-                        erroroptions = np.array(['Check for dublicate StudentIDs','Check for invalid grades','Check for all mentioned errors','Go back'])
-                        while True:
-                            errorchoice = displayMenu(erroroptions)
-                            fil = pd.read_csv(filename)
-                        
-                            #Checking for dublicate student ID's
-                            if errorchoice == 1:
-                                studentid = np.array(fil.StudentID)
-                                repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
-                                for a in range(np.size(repeats)):
-                                    print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))
-                            
-                            #Checking for invalid grades
-                            elif errorchoice == 2:
-                                for l in range(fil.shape[0]): #Finds numbers that aren't valid.
-                                    check = np.array(fil.iloc[l,2:])
-                                    for checksize in range(np.size(check)):
-                                        if check[checksize] not in posgrades:
-                                            print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
-                            
-                            #Checking for everything
-                            elif errorchoice == 3:
-                                studentid = np.array(fil.StudentID)
-                                repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
-                                for a in range(np.size(repeats)):
-                                    print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))            
-                                for l in range(fil.shape[0]): #Finds numbers that aren't valid.
-                                    check = np.array(fil.iloc[l,2:])
-                                    for checksize in range(np.size(check)):
-                                        if check[checksize] not in posgrades:
-                                            print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
-                            elif errorchoice ==4:
-                                break
-                        break
+                        if type(gradesFinal) == type("string"):
+                            print(gradesFinal)
+                            pass
+                        else:
+                            istheredata = True
+                            break                            
                     else:
                         istheredate = False
                         print(dataLoad(filename))
                 elif filechoice ==2:
                     break
+        elif istheredata == True:        
+            erroroptions = np.array(['Check for dublicate StudentIDs','Check for invalid grades','Check for all mentioned errors','Go back'])
+            while True:
+                errorchoice = displayMenu(erroroptions)
+                fil = pd.read_csv(filename)
+            
+                #Checking for dublicate student ID's
+                if errorchoice == 1:
+                    studentid = np.array(fil.StudentID)
+                    repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
+                    for a in range(np.size(repeats)):
+                        print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))
+                
+                #Checking for invalid grades
+                elif errorchoice == 2 :
+                    for l in range(fil.shape[0]): #Finds numbers that aren't valid.
+                        check = np.array(fil.iloc[l,2:])
+                        for checksize in range(np.size(check)):
+                            if check[checksize] not in posgrades:
+                                print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
+    
+                #Checking for all errors:
+                elif errorchoice ==3:
+                    studentid = np.array(fil.StudentID)
+                    repeats = np.array([item for item, count in Counter(studentid).items() if count > 1]) #https://stackoverflow.com/a/11528581
+                    for a in range(np.size(repeats)):
+                        print("The StudentID {} is stated more than once in the datafile.".format(repeats[a]))
+                    for l in range(fil.shape[0]): #Finds numbers that aren't valid.
+                        check = np.array(fil.iloc[l,2:])
+                        for checksize in range(np.size(check)):
+                            if check[checksize] not in posgrades:
+                                print("Error at row nr. {} with grade(s): {}. Grade {} is not in accepted range.".format(l+1,check,check[checksize]))
+                
+                
+                
+                
+                elif errorchoice ==4:
+                    break                          
+
                
     #Generate plots
     elif choice == 3:
@@ -96,17 +111,20 @@ while True:
                 if filechoice == 1:
                     filename = input("Please enter the full file name, for example \"file.csv\" : ")
                     if type(dataLoad(filename)) == type(array):
-                        istheredata = True
                         grades = dataLoad(filename)
                         gradesFinal = computeFinalGrades(grades)
-                        print(gradesPlot(grades,gradesFinal))
-                        break
+                        if type(gradesFinal) == type("string"):
+                            print(gradesFinal)
+                        else:
+                            istheredata = True
+                            break
                     else:
                         istheredate = False
                         print(dataLoad(filename))
                 elif filechoice ==2:
                     break        
-        
+        elif istheredata == True:
+            print(gradesPlot(grades,gradesFinal))                
 
    
     
@@ -120,17 +138,20 @@ while True:
                 if filechoice == 1:
                     filename = input("Please enter the full file name, for example \"file.csv\" : ")
                     if type(dataLoad(filename)) == type(array):
-                        istheredata = True
                         grades = dataLoad(filename)
                         gradesFinal = computeFinalGrades(grades)
-                        
-                        break
+                        if type(gradesFinal) == type("string"):
+                            print(gradesFinal)
+                        else:
+                            istheredata = True
+                            break
                     else:
                         istheredate = False
                         print(dataLoad(filename))
                 elif filechoice ==2:
-                    break
-            
+                    break     
+        elif istheredata ==True:
+            print(collectData(filename,gradesFinal))
         
                 
         

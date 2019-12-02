@@ -1,3 +1,4 @@
+#The code has been writen equally between both groupmembers.
 def inputNumber(prompt):
     #Inputnumber pronts user to input a number
     #

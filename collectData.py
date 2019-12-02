@@ -1,3 +1,4 @@
+#The code has been writen equally between both groupmembers.
 #Error handling
 
 import numpy as np

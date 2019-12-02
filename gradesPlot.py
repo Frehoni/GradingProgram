@@ -1,9 +1,9 @@
+#The code has been writen equally between both groupmembers.
 # Grades plot
 import numpy as np
 import matplotlib.pyplot as plt
 
 def gradesPlot(grades,gradesFinal):
-    
     posgrades = np.array([-3,0,2,4,7,10,12])
     posgrades_string = ['-3','0','2','4','7','10','12']
     grades_zero = np.zeros(np.size(posgrades))

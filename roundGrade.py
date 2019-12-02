@@ -1,3 +1,4 @@
+#The code has been writen equally between both groupmembers.
 # Grade Rounding function
 import numpy as np
 
