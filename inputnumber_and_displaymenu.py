@@ -1,4 +1,5 @@
 #The code has been writen equally between both groupmembers.
+#Code have been copied from the introduction video https://www.youtube.com/watch?v=xSIYqsMCHMQ&list=PLNL_CxRzF5_xGxT0lZb5tAR9Tzjyx7LJQ&index=8
 def inputNumber(prompt):
     #Inputnumber pronts user to input a number
     #
